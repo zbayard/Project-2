@@ -1,0 +1,13 @@
+<h1> New Landlord Form </h1>
+
+<%= form_for @landlord do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+<br>
+<br>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+<br>
+<br>
+    <%= f.submit %>
+<% end %>

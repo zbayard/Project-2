@@ -1,0 +1,4 @@
+<h1> Landlords </h1>
+<% @landlords.each do |landlord| %> </p>
+<p> <%= link_to(landlord.name, landlord_path(landlord)) %> </p>
+<% end %>

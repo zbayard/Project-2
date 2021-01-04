@@ -1,0 +1,6 @@
+<h1> Renters Index Page </h1>
+<% @renters.each do |renter| %> </p>
+<p> <%= link_to(renter.name, renter_path(renter)) %> </p>
+<% end %>
+
+
