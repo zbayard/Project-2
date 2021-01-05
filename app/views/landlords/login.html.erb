@@ -1,0 +1,19 @@
+<h1> Login Form </h1> 
+
+<br>
+<br>
+<% if @error %>
+<p> <%= @error %> </p>
+<% end %>
+
+<%= form_tag "/send_landlord_login" do %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+    <br>
+    <br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br>
+    <br>
+    <%= submit_tag "Login" %>
+<% end %>
