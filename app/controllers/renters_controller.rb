@@ -1,5 +1,21 @@
 class RentersController < ApplicationController
 
+    # def login
+    #     @error = flash[:error]
+    # end
+
+    # def handle_login
+    #     @renter = Renter.find_by(username: params[:username])
+
+    #     if @renter && @renter.authenticate(params[:password])
+    #         redirect_to renter_path(@renter)
+    #     else
+    #         flash[:error] = "Incorrect username or password"
+    #         redirect_to login_path
+    #         # ? Are we going to need separate login paths for renter/landlord??
+    #     end
+    # end
+
     def index 
         @renters = Renter.all 
     end 

@@ -12,11 +12,11 @@ Renter.destroy_all
 Landlord.destroy_all 
 
 20.times do 
-    Renter.create(name: Faker::FunnyName.three_word_name, age: rand(10..110), username: Faker::Hipster.word, user_type: "Renter")
+    Renter.create(name: Faker::FunnyName.three_word_name, age: rand(10..110), username: Faker::Hipster.word, user_type: "Renter", password: "abc123")
 end 
 
 20.times do 
-    Landlord.create(name: Faker::FunnyName.four_word_name, location: Faker::TvShows::GameOfThrones.city, username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord")
+    Landlord.create(name: Faker::FunnyName.four_word_name, location: Faker::TvShows::GameOfThrones.city, username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
 end
 
 # 40.times do 
