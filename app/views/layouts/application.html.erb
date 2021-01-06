@@ -11,6 +11,28 @@
 
   <body>
 
+   <nav>
+      <ul>
+        
+
+        <li class="nav-tabs first-tab"><%= link_to "Renters", renters_path %></li>
+        <li class="nav-tabs"><%= link_to "Landlords", landlords_path %></li>
+        <li class="nav-tabs"><%# link_to "Home", homepages_path %></li>
+
+        <% if renter_logged_in? %>
+      
+          <li class="nav-tabs right"><%= link_to @current_renter.name, renter_path(@current_renter) %></li>
+          <li class="nav-tabs right"><%= link_to "Logout", logout_path, method: :delete %></li>
+          
+        <% else %>
+       
+          <li class="nav-tabs right"><%= link_to "Sign Up", new_renter_path %></li>
+          <li class="nav-tabs right"><%= link_to "Login", renter_login_path %></li>
+        <% end %>
+
+      </ul>
+    </nav>
+
   
 
 

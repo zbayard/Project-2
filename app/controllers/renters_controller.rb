@@ -21,7 +21,8 @@ class RentersController < ApplicationController
 
     def logout
         session[:renter_id] = nil
-        redirect_to renter_login_path
+        
+        redirect_to homepages_path
     end
 
 
@@ -32,6 +33,7 @@ class RentersController < ApplicationController
     
     def show 
         @current_renter = Renter.find_by(id: session[:student_id])
+       
         # @landlord = Landlord.find(params[:id])
     end 
 

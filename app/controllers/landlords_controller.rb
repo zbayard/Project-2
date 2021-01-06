@@ -1,33 +1,12 @@
 class LandlordsController < ApplicationController
-    before_action :get_landlord, only: [:show, :edit, :update, :destroy]
-    # skip_before_action :set_current_landlord, only: [:new, :create]
-    skip_before_action :landlord_authorized, only: [:login, :handle_login, :new, :create]
+    
+   
+    
     
 
-    def login
-        @error = flash[:error]
-    end
-
-    def handle_login
-        @landlord = Landlord.find_by(username: params[:username])
-
-        if @landlord && @landlord.authenticate(params[:password])
-            redirect_to landlord_path(@landlord)
-        else
-            flash[:error] = "Incorrect username or password"
-            redirect_to landlord_login_path
-            # ? Are we going to need separate login paths for renter/landlord??
-        end
-    end
-
-    def logout
-        session[:landlord_id] = nil
-        redirect_to landlord_login_path
-    end
-
-
     def index 
-        @landlords = Landlord.all 
+        @landlords = Landlord.all
+        
     end 
 
     # we might not need this action thanks to before_action 
