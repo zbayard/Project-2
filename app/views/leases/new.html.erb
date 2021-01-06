@@ -1,0 +1,14 @@
+<h1> New Lease </h1>
+
+<%= form_for @lease do |f| %>
+
+    <%= f.label :renter_id %>
+    <%= f.collection_select :renter_id, Renter.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :landlord_id %>
+    <%= f.collection_select :landlord_id, Landlord.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

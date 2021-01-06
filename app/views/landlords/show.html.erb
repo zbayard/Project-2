@@ -1,4 +1,4 @@
-<h1> <%= @landlord.name %> </h1>
+<h1> <%= @landlord.name %> (Landlord) </h1> 
 <h2> Username: <%= @landlord.username %> </h2>
 <h2> Location: <%= @landlord.location %> </h2>
 
@@ -9,8 +9,14 @@ Reviews: <% @landlord.reviews.each do |review| %>
 <p> <%= link_to "#{review.renter.name}", renter_path(review.renter.id) %> </p>
 <p> <%= "#{review.comment}" %> </p>
 <% end %>
-List of comments/renter who left comment
 
-button to create a new lease with landlord
+Leases: <% @landlord.leases.each do |lease| %>
+<p> Landlord: <%= link_to lease.renter.name, renter_path(lease.renter.id) %> </p>
+<% end %>
+
+<%= button_to "Landlords index", landlords_path, method: :get %>
+<br>
+<%= button_to "Start new lease", new_lease_path, method: :get %>
+
 <br>
 

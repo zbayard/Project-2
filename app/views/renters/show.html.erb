@@ -11,3 +11,11 @@ Reviews: <% @renter.reviews.each do |review| %>
 <p> <%= link_to "#{review.landlord.name}", landlord_path(review.landlord.id) %> </p>
 <p> <%= "#{review.comment}" %> </p>
 <% end %>
+
+Leases: <% @renter.leases.each do |lease| %>
+<p> Landlord: <%= link_to lease.landlord.name, landlord_path(lease.landlord.id) %> </p>
+<% end %>
+
+<%= button_to "Renters index", renters_path, method: :get %>
+<br>
+<%= button_to "Start new lease", new_lease_path, method: :get %

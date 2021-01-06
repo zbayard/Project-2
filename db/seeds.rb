@@ -11,19 +11,23 @@ Review.destroy_all
 Renter.destroy_all 
 Landlord.destroy_all 
 
-20.times do 
+6.times do 
     Renter.create(name: Faker::FunnyName.three_word_name, age: rand(10..110), username: Faker::Hipster.word, user_type: "Renter", password: "abc123")
 end 
 
-20.times do 
-    Landlord.create(name: Faker::FunnyName.four_word_name, location: Faker::TvShows::GameOfThrones.city, username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
-end
+# 3.times do 
+#     Landlord.create(name: Faker::FunnyName.four_word_name, location: Faker::TvShows::GameOfThrones.city, username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
+# end
 
-# 40.times do 
+Landlord.create(name: "Paulie Walnuts", location: "North Jersey", username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
+Landlord.create(name: "Mikey Blue Eyes", location: "Brooklyn", username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
+Landlord.create(name: "Frankie Two Times", location: "Staten Island", username: Faker::TvShows::GameOfThrones.character, user_type: "Landlord", password: "abc123")
+
+# 6.times do 
 #     Lease.create(date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), renter_id: Renter.all.sample.id, landlord_id: Landlord.all.sample.id, home_name: Faker::Address.street_name)
 # end 
 
-20.times do 
+6.times do 
     Review.create(renter_id: Renter.all.sample.id, landlord_id: Landlord.all.sample.id, rating: rand(1..100), comment: Faker::TvShows::HeyArnold.quote)
 end 
 
