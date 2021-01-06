@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
+Review.destroy_all
 Renter.destroy_all 
 Landlord.destroy_all 
 
@@ -22,5 +22,9 @@ end
 # 40.times do 
 #     Lease.create(date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), renter_id: Renter.all.sample.id, landlord_id: Landlord.all.sample.id, home_name: Faker::Address.street_name)
 # end 
+
+20.times do 
+    Review.create(renter_id: Renter.all.sample.id, landlord_id: Landlord.all.sample.id, rating: rand(1..100), comment: Faker::TvShows::HeyArnold.quote)
+end 
 
 puts "Data is seeded"

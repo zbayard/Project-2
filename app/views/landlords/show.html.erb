@@ -2,5 +2,15 @@
 <h2> Username: <%= @landlord.username %> </h2>
 <h2> Location: <%= @landlord.location %> </h2>
 
+
+Shady level: <%= @landlord.average_rating %>
+<br>
+Reviews: <% @landlord.reviews.each do |review| %>
+<p> <%= link_to "#{review.renter.name}", renter_path(review.renter.id) %> </p>
+<p> <%= "#{review.comment}" %> </p>
+<% end %>
+List of comments/renter who left comment
+
+button to create a new lease with landlord
 <br>
 

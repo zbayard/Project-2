@@ -4,3 +4,10 @@
 
 
 
+
+Shady level: <%= @renter.average_rating %>
+<br>
+Reviews: <% @renter.reviews.each do |review| %>
+<p> <%= link_to "#{review.landlord.name}", landlord_path(review.landlord.id) %> </p>
+<p> <%= "#{review.comment}" %> </p>
+<% end %>

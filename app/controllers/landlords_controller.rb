@@ -1,5 +1,8 @@
 class LandlordsController < ApplicationController
     before_action :get_landlord, only: [:show, :edit, :update, :destroy]
+    # skip_before_action :set_current_landlord, only: [:new, :create]
+    skip_before_action :landlord_authorized, only: [:login, :handle_login, :new, :create]
+    
 
     def login
         @error = flash[:error]
@@ -16,6 +19,12 @@ class LandlordsController < ApplicationController
             # ? Are we going to need separate login paths for renter/landlord??
         end
     end
+
+    def logout
+        session[:landlord_id] = nil
+        redirect_to landlord_login_path
+    end
+
 
     def index 
         @landlords = Landlord.all 
@@ -34,6 +43,7 @@ class LandlordsController < ApplicationController
         @landlord = Landlord.create(landlord_params)
 
         if @landlord.valid?
+            session[:landlord_id] = @landlord.id
             redirect_to landlord_path(@landlord)
           
         else 
@@ -44,7 +54,8 @@ class LandlordsController < ApplicationController
 
     # we might not need this action thanks to before_action 
     def edit 
-        @landlord = Landlord.find(params[:id])
+        @landlord = @current_landlord
+        # @landlord = Landlord.find(params[:id])
     end 
 
     def update 

@@ -1,5 +1,6 @@
 class RentersController < ApplicationController
     before_action :get_renter, only: [:show, :edit, :update, :destroy]
+    skip_before_action :renter_authorized, only: [:login, :handle_login, :new, :create]
 
     def login
         @error = flash[:error]
@@ -9,22 +10,30 @@ class RentersController < ApplicationController
         @renter = Renter.find_by(username: params[:username])
 
         if @renter && @renter.authenticate(params[:password])
+            session[:renter_id] = @renter.id
             redirect_to renter_path(@renter)
         else
             flash[:error] = "Incorrect username or password"
-            redirect_to login_path
+            redirect_to renter_login_path
             # ? Are we going to need separate login paths for renter/landlord??
         end
     end
+
+    def logout
+        session[:renter_id] = nil
+        redirect_to renter_login_path
+    end
+
 
     def index 
         @renters = Renter.all 
     end 
 
-    # we might not need this action thanks to before_action 
-    # def show 
-    #     @landlord = Landlord.find(params[:id])
-    # end 
+    
+    def show 
+        @current_renter = Renter.find_by(id: session[:student_id])
+        # @landlord = Landlord.find(params[:id])
+    end 
 
     def new 
         @renter = Renter.new 
@@ -34,7 +43,8 @@ class RentersController < ApplicationController
         @renter = Renter.create(renter_params)
 
         if @renter.valid?
-            redirect_to renters_path
+            session[:renter_id] = @renter.id
+            redirect_to renter_path(@renter)
           
         else 
             flash[:errors] = @renter.errors.full_messages
@@ -44,7 +54,8 @@ class RentersController < ApplicationController
 
      # we might not need this action thanks to before_action 
     def edit 
-        @renter = Renter.find(params[:id])
+        # @renter = Renter.find(params[:id])
+        @renter = @current_renter
     end 
 
     def update 
