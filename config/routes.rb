@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get '/renter_login', to: "renters#login", as: 'renter_login'
+  post '/send_renter_login', to: 'renters#handle_login'
+  delete '/renters/logout', to: 'renters#logout', as: 'logout'
+  
   resources :reviews
   resources :leases
   resources :landlords
@@ -7,9 +12,9 @@ Rails.application.routes.draw do
   # get '/', to: 'homepages#home', as: 'homepages'
   root "homepages#home", as: 'homepages'
   
-  get '/renter_login', to: "renters#login", as: 'renter_login'
-  post '/send_renter_login', to: 'renters#handle_login'
-  delete '/logout', to: 'renters#logout', as: 'logout'
+
+
+  
  
 
   

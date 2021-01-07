@@ -1,4 +1,4 @@
-<h1> Login Form </h1> 
+<h1> login form </h1> 
 
 <br>
 <br>
@@ -15,5 +15,9 @@
     <%= password_field_tag :password %>
     <br>
     <br>
-    <%= submit_tag "Login" %>
+    <%= submit_tag "login" %>
 <% end %>
+
+<br> 
+
+<%= button_to "homepage", homepages_path, method: :get %>

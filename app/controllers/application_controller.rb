@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :renter_logged_in?
-    helper_method :renter_authorized
+    # helper_method :renter_authorized
     
     before_action :renter_authorized
 
@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
         
         @current_renter = Renter.find_by(id: session[:renter_id])
     end
-
-    
 
     def renter_logged_in?
         !set_current_renter.nil?

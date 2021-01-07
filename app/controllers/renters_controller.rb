@@ -31,11 +31,11 @@ class RentersController < ApplicationController
     end 
 
     
-    def show 
-        @current_renter = Renter.find_by(id: session[:student_id])
+    # def show 
+    #     @current_renter = Renter.find_by(id: session[:student_id])
        
-        # @landlord = Landlord.find(params[:id])
-    end 
+    #     # @landlord = Landlord.find(params[:id])
+    # end 
 
     def new 
         @renter = Renter.new 
@@ -78,7 +78,7 @@ class RentersController < ApplicationController
     private
 
     def renter_params 
-        params.require(:renter).permit(:name, :age, :username, :user_type, :password)
+        params.require(:renter).permit(:name, :age, :username, :password)
     end 
 
     def get_renter

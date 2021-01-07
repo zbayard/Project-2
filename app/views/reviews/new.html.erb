@@ -1,6 +1,17 @@
-<%# form_for @review do |f| %>
-<%# f.collection_select :renter_id, @renters, :id, :name %>
-<%# f.collection_select :landlord_id, @landlords, :id, :name %>
-<%# f.number_field() %>
-<%# f.submit %>
+<h1> leave a review </h1>
+
+<br>
+
+<%= form_for @review do |f| %>
+    <%= f.label :landlord_id %>
+    <%= f.collection_select :landlord_id, @landlords, :id, :name %>
+    <%= f.label :shady_lvl %>
+    <%= f.number_field :rating %>
+    <br>
+    <br>
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+    <br>
+    <br>
+    <%= f.submit %>
 <% end %>

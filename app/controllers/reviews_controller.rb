@@ -2,12 +2,15 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
+        @landlords = Landlord.all
     end
 
-    def create
-        @review = Review.create(review_params)
-    end
+    def create 
+        @current_renter.reviews << Review.create(review_params)
+    
 
+        redirect_to landlord_path(@current_renter.reviews.last.landlord_id)
+    end
     # def edit 
     #     # @renter = Renter.find(params[:id])
     #     @review = @current_renter
@@ -29,7 +32,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:renter_id, :landlord_id, :rating, :comment)
+        params.require(:review).permit(:landlord_id,:rating, :comment)
     end
 
 end

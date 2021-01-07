@@ -3,6 +3,7 @@ class Renter < ApplicationRecord
     has_many :reviews
     has_many :landlords, through: :leases
 
+    validates :age, numericality: {greater_than_or_equal_to: 18, less_than_or_equal_to: 35}
     validates :name, presence: true
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true

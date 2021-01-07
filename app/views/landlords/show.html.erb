@@ -1,22 +1,24 @@
 <h1> <%= @landlord.name %> (Landlord) </h1> 
-<h2> Username: <%= @landlord.username %> </h2>
-<h2> Location: <%= @landlord.location %> </h2>
+<h2> username: <%= @landlord.username %> </h2>
+<h2> location: <%= @landlord.location %> </h2>
 
 
-Shady level: <%= @landlord.average_rating %>
+shady rating: <%= @landlord.average_rating %>
+
 <br>
-Reviews: <% @landlord.reviews.each do |review| %>
-<p> <%= link_to "#{review.renter.name}", renter_path(review.renter.id) %> </p>
-<p> <%= "#{review.comment}" %> </p>
+
+reviews: <% @landlord.reviews.each do |review| %>
+<p> <%= link_to review.renter.name, renter_path(review.renter.id) %> </p>
+<p> <%= review.comment %> </p>
+<p> shady-ness rating: <%= review.rating %></p>
 <% end %>
 
-Leases: <% @landlord.leases.each do |lease| %>
-<p> Landlord: <%= link_to lease.renter.name, renter_path(lease.renter.id) %> </p>
+my tenets: <% @landlord.leases.each do |lease| %>
+    <p> <%= link_to lease.renter.name, renter_path(lease.renter.id) %> </p>
 <% end %>
 
-<%= button_to "Landlords index", landlords_path, method: :get %>
+<%= button_to "landlords index", landlords_path, method: :get %>
 <br>
-<%= button_to "Start new lease", new_lease_path, method: :get %>
-
+<%= button_to "start new lease", new_lease_path, method: :get %>
 <br>
-
+<%= button_to "leave a review", new_review_path, method: :get %>
