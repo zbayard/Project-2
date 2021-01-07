@@ -1,0 +1,38 @@
+ <% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p> <%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for :renter do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<br>
+<%= f.label :age %>
+<%= f.number_field :age %>
+<br>
+<br>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<br>
+<br>
+<%= f.label :password %>
+<%= f.text_field :password %>
+<br>
+<br>
+<%= f.label :motto %>
+<%= f.text_field :motto %>
+<br>
+<br>
+<%= f.label "if you were a train what train would you be?" %>
+<%= f.text_field :train %>
+<br>
+<br>
+<%= f.submit "save" %>
+<% end %>
+<br>
+<br>
+<%= button_to "delete my account", renter_path(@current_renter), method: :delete  %>
+
+

@@ -62,16 +62,16 @@ class RentersController < ApplicationController
 
     def update 
         # @renter = Renter.find(params[:id])
-        @renter.update(renter_params)
+        @renter.update(edit_params)
 
         redirect_to renter_path(@renter)
     end 
 
     def destroy
-        @renter = Renter.find(params[:id])
+        @renter = @current_renter
         @renter.destroy 
 
-        redirect_to renters_path
+        redirect_to homepages_path
     end 
 
 
@@ -79,7 +79,11 @@ class RentersController < ApplicationController
 
     def renter_params 
         params.require(:renter).permit(:name, :age, :username, :password)
-    end 
+    end
+    
+    def edit_params
+        params.require(:renter).permit(:name, :age, :username, :password, :motto, :train)
+    end
 
     def get_renter
         @renter = Renter.find(params[:id])

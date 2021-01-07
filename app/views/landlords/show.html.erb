@@ -1,7 +1,10 @@
-<h1> <%= @landlord.name %> (Landlord) </h1> 
+<h1> <%= @landlord.name %> (Landlord) </h1>
+ <%= @landlord.username %> </h2>
+<img src="<%= @landlord.img_url %>" alt="<%= @landlord.img_url%>">
 <h2> username: <%= @landlord.username %> </h2>
 <h2> location: <%= @landlord.location %> </h2>
-
+<h2> favorite tool: <%= @landlord.tool %> </h2>
+<h2> main hustle: <%= @landlord.hustle %> </h2>
 
 shady rating: <%= @landlord.average_rating %>
 
@@ -12,6 +15,8 @@ reviews: <% @landlord.reviews.each do |review| %>
 <p> <%= review.comment %> </p>
 <p> shady-ness rating: <%= review.rating %></p>
 <% end %>
+
+<br>
 
 my tenets: <% @landlord.leases.each do |lease| %>
     <p> <%= link_to lease.renter.name, renter_path(lease.renter.id) %> </p>
