@@ -1,35 +1,36 @@
-sign up 
 
-<br>
-<br>
 
- <% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <p> <%= error %></p>
+
+<div class="register_box"> 
+
+  <h3> sign up </h3>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+      <p> <%= error %></p>
+    <% end %>
   <% end %>
-<% end %>
+  <%= form_for @renter do |f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :age %>
+  <br>
+  <%= f.number_field :age, in: 18..35 %>
+  <br>
+  <%= f.label :username %>
+  <br>
+  <%= f.text_field :username %>
+  <br>
+  <%= f.label :password %>
+  <br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit "register" %>
+  <% end %>
+  <%= button_to "homepage", homepages_path, method: :get %>
+  <br>
 
-<%= form_for @renter do |f| %>
+ 
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br>
-<br>
-<%= f.label :age %>
-<%= f.number_field :age %>
-<br>
-<br>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<br>
-<br>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<br>
-<br>
-<%= f.submit "register" %>
-<% end %>
-
-<br>
-
-<%= button_to "homepage", homepages_path, method: :get %>
+</div>

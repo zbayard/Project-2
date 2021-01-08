@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Titlewewontmoveforwardwith</title>
+    <title>shady landlord</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%=  stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#  javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap" rel="stylesheet">
   </head>
 
   <body>
   <% unless controller_name == "homepages" || action_name == "login"%>
-   <nav>
-      <ul>
-        
 
-       
-         
-       
-        
-
-        <% if renter_logged_in? %>
+  <nav >
+     <ul>
+       <% if renter_logged_in? %>
       
-          <li class="nav-tabs first-tab"><%= button_to "renters", renters_path, method: :get%></li>
-          <li class="nav-tabs"><%= button_to "landlords", landlords_path, method: :get %></li>
-          <li class="nav-tabs right"><%= button_to @current_renter.username, renter_path(@current_renter), method: :get %></li>
-          <li class="nav-tabs right"><%= button_to "logout", logout_path, method: :delete %></li>
+        <li class="nav-tabs first-tab"><%= button_to "renters", renters_path, method: :get%></li>
+        <li class="nav-tabs"><%= button_to "landlords", landlords_path, method: :get %></li>
+        <li class="nav-tabs right"><%= button_to @current_renter.username, renter_path(@current_renter), method: :get %></li>
+        <li class="nav-tabs right"><%= button_to "logout", logout_path, method: :delete %></li>
+       <% end %>
+ 
+      
+ 
+       </ul>
     
-        <% end %>
+   </nav>
 
-      </ul>
-    </nav>
+   
   <% end %>
   
 

@@ -5,8 +5,10 @@
 <%= form_for @review do |f| %>
     <%= f.label :landlord_id %>
     <%= f.collection_select :landlord_id, @landlords, :id, :name %>
+    <br> 
+    <br>    
     <%= f.label :shady_lvl %>
-    <%= f.number_field :rating %>
+    <%= f.number_field :rating, in: 1..5%>
     <br>
     <br>
     <%= f.label :comment %>

@@ -1,6 +1,9 @@
 <h1> renters </h1>
-<% @renters.each do |renter| %> </p>
-<p> <%= link_to(renter.name, renter_path(renter)) %> </p>
-<% end %>
+
+    <% @renters.each do |renter| %> </p>
+        <div class=landlord_box>
+            <p> <%= link_to(renter.name, renter_path(renter)) %> </p>
+        </div>
+    <% end %>
 
 

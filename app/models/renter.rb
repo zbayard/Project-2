@@ -1,6 +1,6 @@
 class Renter < ApplicationRecord
-    has_many :leases
-    has_many :reviews
+    has_many :leases, dependent: :destroy
+    has_many :reviews, dependent: :destroy
     has_many :landlords, through: :leases
 
     validates :age, numericality: {greater_than_or_equal_to: 18, less_than_or_equal_to: 35}
