@@ -1,5 +1,10 @@
 
 <div class=box>
+    <% if @renter.avatar.attached? %>
+    <img src= "<%= (url_for(@renter.avatar)) %>" >
+    <% else %>
+    <img src="<%= @renter.img_url %>" alt="<%= @renter.img_url%>">
+    <% end %>
     <h1> <%= @renter.name %> </h1>
 
     <h3> 
@@ -22,26 +27,3 @@
     <% end %>
 </div>
 
-<div>
-    <br>
-
-    <%= @renter.username %>'s reviews: <% @renter.reviews.each do |review| %>
-    <p>landlord: <%= link_to "#{review.landlord.name}", landlord_path(review.landlord.id) %> </p>
-    <p> <%= "#{review.comment}" %> </p>
-    <% end %>
-
-    <br>
-
-    leases: <% @renter.leases.each do |lease| %>
-    <p><%= link_to lease.location, landlord_path(lease.landlord_id) %> </p>
-    <% end %>
-
-    <% if @renter == @current_renter %>
-    <%= button_to "edit renter", edit_renter_path, method: :get %>
-    <% end %>
-
-    leases: <% @renter.leases.each do |lease| %>
-    <p><%= link_to lease.location, landlord_path(lease.landlord_id) %> </p>
-    <% end %>
-
-</div>

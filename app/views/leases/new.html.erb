@@ -1,6 +1,6 @@
 <h1> new lease </h1>
-
-<%= form_for @lease do |f| %>
+<div class=form_box>
+    <%= form_for @lease do |f| %>
 
     <%# f.label :renter_id %>
     <%# f.collection_select :renter_id, Renter.all, :id, :name %>
@@ -17,3 +17,4 @@
     <br>
     <%= f.submit %>
 <% end %>
+</div>

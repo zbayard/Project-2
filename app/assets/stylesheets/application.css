@@ -200,6 +200,75 @@ h3 {
     font-family: "Lobster";
   }
 
+  .form_box {
+    width: 15vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+   
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    outline: black;
+    border: solid;
+    box-shadow: 5px 10px;
+    font-family: "Lobster";
+  }
+
+  .edit_renter_box {
+    width: 20vw;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+   
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    outline: black;
+    border: solid;
+    box-shadow: 5px 10px;
+    font-family: "Lobster";
+  }
+
+  .review_box {
+    width: 20vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+   
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    outline: black;
+    border: solid;
+    box-shadow: 5px 10px;
+    font-family: "Lobster";
+  }
+
   .DivToScroll {
     margin: auto;
     display: flex;

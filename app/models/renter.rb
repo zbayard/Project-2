@@ -1,4 +1,5 @@
 class Renter < ApplicationRecord
+    has_one_attached :avatar
     has_many :leases, dependent: :destroy
     has_many :reviews, dependent: :destroy
     has_many :landlords, through: :leases

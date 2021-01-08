@@ -78,7 +78,7 @@ class RentersController < ApplicationController
     private
 
     def renter_params 
-        params.require(:renter).permit(:name, :age, :username, :password)
+        params.require(:renter).permit(:name, :age, :username, :password, :avatar)
     end
     
     def edit_params

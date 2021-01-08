@@ -1,7 +1,7 @@
 <h1> leave a review </h1>
 
 <br>
-
+<div class=review_box>
 <%= form_for @review do |f| %>
     <%= f.label :landlord_id %>
     <%= f.collection_select :landlord_id, @landlords, :id, :name %>
@@ -16,4 +16,5 @@
     <br>
     <br>
     <%= f.submit %>
-<% end %>
+    <% end %>
+</div>

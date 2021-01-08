@@ -1,9 +1,19 @@
 <h1> renters </h1>
-
+    
+    
     <% @renters.each do |renter| %> </p>
         <div class=landlord_box>
-            <p> <%= link_to(renter.name, renter_path(renter)) %> </p>
-        </div>
+        
+            
+        <% if renter.avatar.attached? %>
+            <img src= "<%= (url_for(renter.avatar)) %>" >
+        <% else %>
+            <img src="<%= renter.img_url %>" alt="<%= renter.img_url%>">
+        <% end %>
+            
+        <p> <%= link_to(renter.name, renter_path(renter)) %> </p>
+       </div>
     <% end %>
+   
 
 
