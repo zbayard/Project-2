@@ -1,6 +1,29 @@
-<h1> <%= @renter.name %> </h1>
-<h2> Username: <%= @renter.username %> </h2>
-<h2> Location: <%= @renter.age %> </h2>
 
+<div class=box>
+    <% if @renter.avatar.attached? %>
+    <img src= "<%= (url_for(@renter.avatar)) %>" >
+    <% else %>
+    <img src="<%= @renter.img_url %>" alt="<%= @renter.img_url%>">
+    <% end %>
+    <h1> <%= @renter.name %> </h1>
 
+    <h3> 
+        <p> username: <%= @renter.username %> </p>
+        <p> motto: <%= @renter.motto %> </p>
+        <p> if i was a train: <%= @renter.train %> </p>
+    </h3>
+
+    <h3>
+        <%= @renter.username %>'s lease: <% @renter.leases.each do |lease| %>
+        <p>landlord: <%= link_to "#{lease.landlord.name}", landlord_path(lease.landlord.id) %> </p>
+        <p> address: <%= "#{lease.location}" %> </p>
+        <% end %>
+    </h3>
+
+    
+
+    <% if @renter == @current_renter %>
+    <%= button_to "edit renter", edit_renter_path, method: :get %>
+    <% end %>
+</div>
 

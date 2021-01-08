@@ -1,3 +1,42 @@
-<h1> <%= @landlord.name %> </h1>
-<h2> Username: <%= @landlord.username %> </h2>
-<h2> Location: <%= @landlord.location %> </h2>
+
+<div class=box>
+   
+    <img src="<%= @landlord.img_url %>" alt="<%= @landlord.img_url%>">
+    <h1> <%= @landlord.name %> </h1>
+    <h3> 
+        <p>username: <%= @landlord.username %></p>
+        <p>location: <%= @landlord.location %></p>
+        <p>favorite tool: <%= @landlord.tool %></p>
+        <p>main hustle: <%= @landlord.hustle %></p>
+        <p>shady rating: <%= @landlord.average_rating%></p>
+        <%= button_to "start new lease", new_lease_path, method: :get %>
+    </h3>
+    <audio src= "<%= @landlord.song %>" controls> </audio>
+</div>
+
+<br>
+
+<div class=box_two>
+    <h5> my tenets: 
+        <% @landlord.leases.each do |lease| %>
+        <p><%= link_to lease.renter.name, renter_path(lease.renter.id)%></p>
+        <% end %>
+    </h5>
+</div>
+<br>
+<div class=DivToScroll>
+    <div class=DivWithScroll>
+        <h5> reviews: 
+            <% @landlord.reviews.each do |review| %>
+            <p> <%= link_to review.renter.name, renter_path(review.renter.id) %> </p>
+            <p> <%= review.comment %> </p>
+            <p> shady-ness rating: <%= review.rating %></p>
+            <% end %>
+            
+        </h5>
+    </div>
+    <br> 
+    <%= button_to "leave a review", new_review_path, method: :get %>
+</div>
+
+

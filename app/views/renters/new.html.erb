@@ -1,4 +1,40 @@
-New Renter Form goes here
 
-<%= button_to "Back to Renters", renters_path, method: :get %>
-<%= button_to "Homepage", homepages_path, method: :get %>
+
+
+<div class="register_box"> 
+
+  <h3> sign up </h3>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+      <p> <%= error %></p>
+    <% end %>
+    <% end %>
+  <%= form_for @renter do |f| %>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :age %>
+    <br>
+    <%= f.number_field :age, in: 18..35 %>
+    <br>
+    <%= f.label :username %>
+    <br>
+    <%= f.text_field :username %>
+    <br>
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label "Profile Photo" %>
+    <br>
+    <%= f.file_field :avatar %>
+    <br>
+    <%= f.submit "register" %>
+  <% end %>
+  <%= button_to "homepage", homepages_path, method: :get %>
+  <br>
+
+ 
+
+</div>

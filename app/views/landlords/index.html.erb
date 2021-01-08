@@ -1,4 +1,9 @@
-<h1> Landlords </h1>
-<% @landlords.each do |landlord| %> </p>
-<p> <%= link_to(landlord.name, landlord_path(landlord)) %> </p>
-<% end %>
+
+    <h1> landlords </h1>
+
+    <% @landlords.each do |landlord| %> </p>
+        <div class=landlord_box>
+            <p> <img src="<%= landlord.img_url %>" alt="<%= landlord.img_url%>"> </p>
+            <h1> <%= link_to(landlord.name, landlord_path(landlord)) %> </h1>
+        </div>
+    <% end %>

@@ -1,0 +1,24 @@
+
+<div class="login_box"> 
+        <h1> login form </h1> 
+
+    <br>
+    <br>
+    <% if @error %>
+    <p> <%= @error %> </p>
+    <% end %>
+
+    <%= form_tag "/send_renter_login" do %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+        <br>
+        <br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        <br>
+        <br>
+        <%= submit_tag "login" %>
+    <% end %>
+
+    <%= button_to "homepage", homepages_path, method: :get %>
+</div>
